@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opal Spotify Auth</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code  = params.get('code');
+    const error = params.get('error');
+
+    if (code) {
+      window.location.href = 'http://localhost:8888/callback?code=' + encodeURIComponent(code);
+    } else if (error) {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('msg').textContent = 'Spotify auth error: ' + error;
+      });
+    }
+  </script>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #1DB954;
+           display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    p { font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+  <p id="msg">Redirecting back to Opal… keep this tab open.</p>
+</body>
+</html>
