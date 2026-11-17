@@ -131,7 +131,7 @@
     if (code) {
       // Redirect to the local Spotify server
       setTimeout(() => {
-        window.location.href = 'http://127.0.0.1:8888/callback' + encodeURIComponent(code);
+        window.location.href = 'http://localhost:4030' + encodeURIComponent(code);
       }, 800);
     } else if (error) {
       document.addEventListener('DOMContentLoaded', () => {
